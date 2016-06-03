@@ -1,4 +1,5 @@
-﻿using System;
+﻿using asthanarht.code.lingua.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace asthanarht.code.lingua
                 }
             };
 
-            MainPage = new NavigationPage(content);
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

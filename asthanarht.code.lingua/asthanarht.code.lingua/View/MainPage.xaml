@@ -1,6 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="asthanarht.code.lingua.View.MainPage">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+             x:Class="asthanarht.code.lingua.View.MainPage" BackgroundColor="#202B51">
+
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="EndAndExpand" Spacing="0">
+    <Image x:Name="image"></Image>
+      <Button
+         x:Name="captureSnapButton"
+         HeightRequest="100"
+         BackgroundColor="#F9A050"
+         BorderRadius="0"
+         TextColor="White"
+         Text="Capture Photo"/>
+
+      <Button
+       x:Name="LinguaBaseButton"
+       HeightRequest="100"
+       BackgroundColor="#FF4B6D"
+       BorderRadius="0"
+       TextColor="White"
+       Text="History"/>
+       
+      <Button
+       x:Name="settingButton"
+       HeightRequest="100"
+       BackgroundColor="#2ED0A8"
+       BorderRadius="0"
+       TextColor="White"
+       Text="Setting"/>
+        
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>
