@@ -6,8 +6,8 @@
   <ContentPage.Content>
 
     <StackLayout VerticalOptions="StartAndExpand">
-      <Image Source="{Binding SenderImageUri}" WidthRequest="60" HeightRequest="60" VerticalOptions="Center"/>
-      <Label Text="{Binding Message}" LineBreakMode="WordWrap" ></Label>
+      <Image Source="{Binding ImageUri}" WidthRequest="260" HeightRequest="260" VerticalOptions="Center"/>
+      <Label Text="{Binding Status , Mode=TwoWay}" LineBreakMode="WordWrap" TextColor="Black"></Label>
     </StackLayout>
     
   </ContentPage.Content>

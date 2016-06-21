@@ -12,6 +12,7 @@
          BackgroundColor="#F9A050"
          BorderRadius="0"
          TextColor="White"
+         Command="{Binding ClickPhotoCommand}"
          Text="Capture Photo"/>
 
       <Button

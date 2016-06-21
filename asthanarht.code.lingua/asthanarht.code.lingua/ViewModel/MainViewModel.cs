@@ -1,4 +1,5 @@
-﻿using Plugin.Media;
+﻿using asthanarht.code.lingua.View;
+using Plugin.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace asthanarht.code.lingua.ViewModel
     public class MainViewModel :BaseViewModel
     {
         Command clickPicCommand;
-        public MainViewModel()
+        public MainViewModel(Page page):base(page)
         {
 
         }
@@ -48,7 +49,9 @@ namespace asthanarht.code.lingua.ViewModel
             if (file == null)
                 return;
 
-        
+            var ocrviewmodel = new OCRViewModel(file);
+
+            await page.Navigation.PushModalAsync(new OCPExtractorPage(ocrviewmodel));
             //image.Source = ImageSource.FromStream(() =>
             //{
             //    var stream = file.GetStream();

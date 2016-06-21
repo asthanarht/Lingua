@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 using asthanarht.code.lingua.Contract;
 using System.Net;
 using Newtonsoft.Json;
+using Xamarin.Forms;
+using asthanarht.code.lingua.Service;
 
+[assembly: Dependency(typeof(VisionService))]
 namespace asthanarht.code.lingua.Service
 {
     public class VisionService : IVisionService
