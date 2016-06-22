@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="asthanarht.code.lingua.View.OCR">
+  <ContentPage.Content>
+  <RelativeLayout>
+
+    
+      <Image
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               Source="{Binding ImageUri}"
+               Aspect="AspectFill"
+      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=0 }"
+      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=0}" 
+               />
+
+    <!--<StackLayout Spacing="10" 
+         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=0 }"
+              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=0}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,,Constant=0}"
+                 >"
+      
+      <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                   Spacing="{DynamicResource CardSpacing}"
+                   Padding="{DynamicResource CardPadding}">
+        --><!--OCRText--><!--
+        <StackLayout Spacing="0">
+          <Label Text="OCR" Style="{DynamicResource SectionLabelTextStyle}"/>
+          --><!--<HeaderDivider/>--><!--
+          <StackLayout Padding="16" BackgroundColor="White">
+            <Label Text="{Binding Status , Mode=TwoWay}" Style="{DynamicResource EvolveListItemTextStyle}"/>
+          </StackLayout>
+          --><!--<FooterDivider/>--><!--
+        </StackLayout>
+      </StackLayout>
+    </StackLayout>-->
+
+    <Image
+               
+               Source="Overlay.png"
+               Aspect="AspectFill"
+               HeightRequest="0"
+               WidthRequest="0"
+      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=0 }"
+      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=0}"
+               />
+    
+    </RelativeLayout>
+
+    </ContentPage.Content>
+</ContentPage>

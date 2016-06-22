@@ -33,7 +33,7 @@ namespace asthanarht.code.lingua.ViewModel
 
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
-                await App.Current.MainPage.DisplayAlert("No Camera", ":( No camera available.", "OK");
+                await App_old.Current.MainPage.DisplayAlert("No Camera", ":( No camera available.", "OK");
                 return;
             }
 
@@ -51,7 +51,7 @@ namespace asthanarht.code.lingua.ViewModel
 
             var ocrviewmodel = new OCRViewModel(file);
 
-            await page.Navigation.PushModalAsync(new OCPExtractorPage(ocrviewmodel));
+            await page.Navigation.PushModalAsync(new OCR(ocrviewmodel));
             //image.Source = ImageSource.FromStream(() =>
             //{
             //    var stream = file.GetStream();

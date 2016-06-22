@@ -51,9 +51,9 @@ namespace asthanarht.code.lingua.ViewModel
             try
             {
                 var stream = PhotoDetails.GetStream();
-                var ocrResult = await visionService.RecognizeTextAsync(stream);
+                //var ocrResult = await visionService.RecognizeTextAsync(stream);
                 this.ImageUri = PhotoDetails.Path;
-                this.Status = ParseOcrResults(ocrResult);
+                //this.Status = ParseOcrResults(ocrResult);
             }
             catch(Exception ex)
             {

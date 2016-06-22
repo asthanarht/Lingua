@@ -3,12 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="asthanarht.code.lingua.View.OCPExtractorPage">
 
-  <ContentPage.Content>
 
-    <StackLayout VerticalOptions="StartAndExpand">
+ <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400" x:Name="Row1Header"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid RowSpacing="0" ColumnSpacing="0" x:Name="HeaderView" BackgroundColor="{DynamicResource Primary}">
+            <Image
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Source="{Binding ImageUri}"
+                Aspect="AspectFill"/>
+        </Grid>
+    <!--<StackLayout VerticalOptions="StartAndExpand">
       <Image Source="{Binding ImageUri}" WidthRequest="260" HeightRequest="260" VerticalOptions="Center"/>
-      <Label Text="{Binding Status , Mode=TwoWay}" LineBreakMode="WordWrap" TextColor="Black"></Label>
+      --><!--<Label Text="{Binding Status , Mode=TwoWay}" LineBreakMode="WordWrap" TextColor="Black"></Label>--><!--
+    </StackLayout>-->
+
+    <StackLayout Grid.Row="1" Spacing="0">
+      <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                   Spacing="{DynamicResource CardSpacing}"
+                   Padding="{DynamicResource CardPadding}">
+        <!--OCRText-->
+        <StackLayout Spacing="0">
+          <Label Text="OCR" Style="{DynamicResource SectionLabelTextStyle}"/>
+          <!--<HeaderDivider/>-->
+          <StackLayout Padding="16" BackgroundColor="White">
+            <Label Text="{Binding Status , Mode=TwoWay}" Style="{DynamicResource EvolveListItemTextStyle}"/>
+          </StackLayout>
+          <!--<FooterDivider/>-->
+        </StackLayout>
+      </StackLayout>
     </StackLayout>
-    
-  </ContentPage.Content>
+    </Grid>
+
 </ContentPage>

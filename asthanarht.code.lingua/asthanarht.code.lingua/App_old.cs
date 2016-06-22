@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace asthanarht.code.lingua
 {
-    public class App : Application
+    public class App_old : Application
     {
-        public App()
+        public App_old()
         {
             // The root page of your application
             var content = new ContentPage
