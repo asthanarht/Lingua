@@ -16,6 +16,8 @@ namespace asthanarht.code.lingua.ViewModel
         readonly IVisionService visionService;
         public OCRViewModel(MediaFile photoFile)
         {
+           
+            
             this.PhotoDetails = photoFile;
             visionService = DependencyService.Get<IVisionService>();
         }

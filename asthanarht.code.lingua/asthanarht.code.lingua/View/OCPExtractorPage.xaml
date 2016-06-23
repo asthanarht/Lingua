@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="asthanarht.code.lingua.View.OCPExtractorPage">
-
+             x:Class="asthanarht.code.lingua.View.OCPExtractorPage" Title="OCR" BackgroundColor="#202B51">
+    <ContentPage.Content>
 
  <Grid>
         <Grid.RowDefinitions>
@@ -10,23 +10,21 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid RowSpacing="0" ColumnSpacing="0" x:Name="HeaderView" BackgroundColor="{DynamicResource Primary}">
+          <Frame  BackgroundColor="#202B51">
             <Image
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
                 Source="{Binding ImageUri}"
                 Aspect="AspectFill"/>
+          </Frame>
         </Grid>
-    <!--<StackLayout VerticalOptions="StartAndExpand">
-      <Image Source="{Binding ImageUri}" WidthRequest="260" HeightRequest="260" VerticalOptions="Center"/>
-      --><!--<Label Text="{Binding Status , Mode=TwoWay}" LineBreakMode="WordWrap" TextColor="Black"></Label>--><!--
-    </StackLayout>-->
 
     <StackLayout Grid.Row="1" Spacing="0">
       <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}"
                    Spacing="{DynamicResource CardSpacing}"
                    Padding="{DynamicResource CardPadding}">
         <!--OCRText-->
-        <StackLayout Spacing="0">
+        <StackLayout Spacing="10">
           <Label Text="OCR" Style="{DynamicResource SectionLabelTextStyle}"/>
           <!--<HeaderDivider/>-->
           <StackLayout Padding="16" BackgroundColor="White">
@@ -37,5 +35,5 @@
       </StackLayout>
     </StackLayout>
     </Grid>
-
+</ContentPage.Content>
 </ContentPage>

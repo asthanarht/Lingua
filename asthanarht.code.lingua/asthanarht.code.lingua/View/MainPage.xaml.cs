@@ -15,7 +15,7 @@ namespace asthanarht.code.lingua.View
         public MainPage()
         {
             InitializeComponent();
-
+            Title = "ViewProfile";
 
             BindingContext = vm = new MainViewModel(this);  
 

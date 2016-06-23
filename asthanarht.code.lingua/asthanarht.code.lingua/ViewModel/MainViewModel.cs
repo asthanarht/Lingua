@@ -51,7 +51,9 @@ namespace asthanarht.code.lingua.ViewModel
 
             var ocrviewmodel = new OCRViewModel(file);
 
-            await page.Navigation.PushModalAsync(new OCR(ocrviewmodel));
+            var navPage = new NavigationPage(new OCPExtractorPage(ocrviewmodel));
+            navPage.BarBackgroundColor = Color.FromHex("#F9A050");
+            await page.Navigation.PushModalAsync(navPage);
             //image.Source = ImageSource.FromStream(() =>
             //{
             //    var stream = file.GetStream();

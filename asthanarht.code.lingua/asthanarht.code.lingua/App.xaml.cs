@@ -17,8 +17,6 @@ namespace asthanarht.code.lingua
         {
             current = this;
             InitializeComponent();
-           
-
             MainPage = new MainPage();
         }
     }
