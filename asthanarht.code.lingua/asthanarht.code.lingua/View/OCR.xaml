@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="asthanarht.code.lingua.View.OCR" 
+             >
+  <Grid BackgroundColor="White" HorizontalOptions="FillAndExpand"
+          Padding="0"
+          RowSpacing="2"
+          ColumnSpacing="0"
+          VerticalOptions="FillAndExpand">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="400"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <RelativeLayout>
+      <Image x:Name="DefaultPhoto"  Source="{Binding ImageUri}" Aspect="AspectFill" />
+      <Image x:Name="ClickPhoto" HeightRequest="50" WidthRequest="50" Source="cameraoutline.png" RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, &#xA; Constant=0}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, &#xA;Property=Width,&#xA;ElementName=DefaultPhoto,&#xA;Constant=-48}" />
+    </RelativeLayout>
+
+    <ScrollView Grid.Row="1">
+      <Grid
+         HorizontalOptions="FillAndExpand"
+         Padding="0"
+         RowSpacing="5"
+         ColumnSpacing="0"
+         VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="10" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Button TextColor="White" BackgroundColor="#F9A050" Grid.Row="3" Text="Extract Text"  Grid.Column="1" Command="{Binding GetOcrTextCommand}" />
+       
+          <!--OCRText-->
+          <StackLayout Grid.Row="4" Grid.Column="1" >
+            <!--<HeaderDivider/>-->
+            <StackLayout BackgroundColor="White" >
+              <Label Text="{Binding Status , Mode=TwoWay}" HeightRequest="100" BackgroundColor="Gray" Style="{DynamicResource EvolveListItemTextStyle}"/>
+            </StackLayout>
+            <StackLayout  BackgroundColor="White" >
+              <Image x:Name="SelectLang"   Source="cameraoutline.png" Aspect="AspectFit" />
+            </StackLayout>
+            <StackLayout  BackgroundColor="White" >
+              <Label Text="{Binding Status , Mode=TwoWay}"  HeightRequest="100" BackgroundColor="Gray" Style="{DynamicResource EvolveListItemTextStyle}"/>
+            </StackLayout>
+            <!--<FooterDivider/>-->
+          </StackLayout>
+
+      </Grid>
+     
+    </ScrollView>
+
+  </Grid>
+</ContentPage>

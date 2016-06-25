@@ -29,29 +29,29 @@ namespace asthanarht.code.lingua.ViewModel
 
         private async Task ClickPhoto()
         {
-            await CrossMedia.Current.Initialize();
+            //await CrossMedia.Current.Initialize();
 
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-            {
-                await App_old.Current.MainPage.DisplayAlert("No Camera", ":( No camera available.", "OK");
-                return;
-            }
+            //if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            //{
+            //    await App_old.Current.MainPage.DisplayAlert("No Camera", ":( No camera available.", "OK");
+            //    return;
+            //}
 
-            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            {
-                Directory = "Sample",
-                Name = "test.jpg",
-                DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Rear
+            //var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            //{
+            //    Directory = "Sample",
+            //    Name = "test.jpg",
+            //    DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Rear
                 
-            });
+            //});
 
             
-            if (file == null)
-                return;
+            //if (file == null)
+            //    return;
 
-            var ocrviewmodel = new OCRViewModel(file);
+           
 
-            var navPage = new NavigationPage(new OCPExtractorPage(ocrviewmodel));
+            var navPage = new NavigationPage(new OCR());
             navPage.BarBackgroundColor = Color.FromHex("#F9A050");
             await page.Navigation.PushModalAsync(navPage);
             //image.Source = ImageSource.FromStream(() =>
