@@ -70,6 +70,7 @@ namespace asthanarht.code.lingua.Service
                     throw new ArgumentNullException("request");
                 }
 
+				//ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
                 request.Method = method;
                 if (null == setHeadersCallback)
                 {

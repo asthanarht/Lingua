@@ -50,5 +50,7 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleShortVersionString</key>
 	<string></string>
+	<key>CFBundleName</key>
+	<string>asthanarht.code.lingua</string>
 </dict>
 </plist>

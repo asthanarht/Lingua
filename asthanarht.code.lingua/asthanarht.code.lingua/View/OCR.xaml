@@ -1,16 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="asthanarht.code.lingua.View.OCR" 
-             >
+             x:Class="asthanarht.code.lingua.View.OCR" Title="OCR"
+             xmlns:controls="clr-namespace: asthanarht.code.lingua; assembly=asthanarht.code.lingua ">
   <Grid BackgroundColor="White" HorizontalOptions="FillAndExpand"
           Padding="0"
-          RowSpacing="2"
+          RowSpacing="0"
           ColumnSpacing="0"
           VerticalOptions="FillAndExpand">
     <Grid.RowDefinitions>
-      <RowDefinition Height="400"/>
-      <RowDefinition Height="*"/>
+      <RowDefinition Height="300"/>
+      <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
     <RelativeLayout>
       <Image x:Name="DefaultPhoto"  Source="{Binding ImageUri}" Aspect="AspectFill" />
@@ -18,43 +18,48 @@
     </RelativeLayout>
 
     <ScrollView Grid.Row="1">
-      <Grid
-         HorizontalOptions="FillAndExpand"
-         Padding="0"
-         RowSpacing="5"
-         ColumnSpacing="0"
-         VerticalOptions="FillAndExpand">
-        <Grid.RowDefinitions>
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="10" />
-          <ColumnDefinition Width="*" />
-          <ColumnDefinition Width="10" />
-        </Grid.ColumnDefinitions>
-        <Button TextColor="White" BackgroundColor="#F9A050" Grid.Row="3" Text="Extract Text"  Grid.Column="1" Command="{Binding GetOcrTextCommand}" />
-       
+     
           <!--OCRText-->
-          <StackLayout Grid.Row="4" Grid.Column="1" >
+          <StackLayout >
+				
+					 <Grid RowSpacing="0" >
+						 <Grid.RowDefinitions>
+					          <RowDefinition Height="100*" />
+					          <RowDefinition Height="70" />
+					          <RowDefinition Height="100*" />
+						</Grid.RowDefinitions>
+             
             <!--<HeaderDivider/>-->
-            <StackLayout BackgroundColor="White" >
-              <Label Text="{Binding Status , Mode=TwoWay}" HeightRequest="100" BackgroundColor="Gray" Style="{DynamicResource EvolveListItemTextStyle}"/>
+            <StackLayout BackgroundColor="Gray"  Grid.Row="0" >
+              <Label Text="{Binding Status , Mode=TwoWay}" BackgroundColor="Gray" Style="{DynamicResource EvolveListItemTextStyle}"/>
             </StackLayout>
-            <StackLayout  BackgroundColor="White" >
-              <Image x:Name="SelectLang"   Source="cameraoutline.png" Aspect="AspectFit" />
+            <StackLayout BackgroundColor="White" Grid.Row="1">
+						<Grid RowSpacing="0" HeightRequest="60" >
+						 <Grid.RowDefinitions>
+					          <RowDefinition Height="20" />
+					          <RowDefinition Height="20" />
+					          <RowDefinition Height="20" />
+						</Grid.RowDefinitions>
+						<Image  Grid.Row="0"   Source="up.png" Aspect="AspectFit" />
+						<Label Grid.Row="1"  Text="ENG" HorizontalTextAlignment="Center"></Label>
+			            <!--<controls:BindablePicker Grid.Row="1"
+									IsVisbile="False"
+                            DisplayMemberPath="Name"
+                            SelectedValuePath="Abbreviation"
+                            ItemsSource="{Binding Path=Countries}"
+                            SelectedValue="{Binding Path=Person.Country, Mode=TwoWay}" />-->
+						 <Image Grid.Row="2"  x:Name="SelectLang"   Source="down.png" Aspect="AspectFit" />
+						</Grid>
+             
             </StackLayout>
-            <StackLayout  BackgroundColor="White" >
-              <Label Text="{Binding Status , Mode=TwoWay}"  HeightRequest="100" BackgroundColor="Gray" Style="{DynamicResource EvolveListItemTextStyle}"/>
+            <StackLayout  BackgroundColor="Gray" MinimumHeightRequest="100"  Grid.Row="2" >
+              <Label Text="{Binding TranslateText , Mode=TwoWay}" MinimumHeightRequest="100" BackgroundColor="Gray" Style="{DynamicResource EvolveListItemTextStyle}"/>
             </StackLayout>
+							</Grid>
             <!--<FooterDivider/>-->
           </StackLayout>
 
-      </Grid>
-     
+    
     </ScrollView>
 
   </Grid>

@@ -68,10 +68,15 @@ namespace asthanarht.code.lingua.Contract
         /// </summary>
         public const string Hungarian = "hu";
 
-        /// <summary>
-        /// The italian.
-        /// </summary>
-        public const string Italian = "it";
+		// <summary>
+		/// The hindi.
+		/// </summary>
+		public const string Hindi = "hi";
+
+		/// <summary>
+		/// The italian.
+		/// </summary>
+		public const string Italian = "it";
 
         /// <summary>
         /// The japanese.
@@ -117,5 +122,27 @@ namespace asthanarht.code.lingua.Contract
         /// The turkish.
         /// </summary>
         public const string Turkish = "tr";
+
+		public static Dictionary<string, string> PopulateLanguageDict = new Dictionary<string, string>()
+		{
+			{"ENG",LanguageCodes.English},
+			{"CZE",LanguageCodes.Czech},
+			{"DAN",LanguageCodes.Danish},
+			{"DUH",LanguageCodes.Dutch},
+			{"FIN",LanguageCodes.Finnish},
+			{"FRA",LanguageCodes.French},
+			{"GER",LanguageCodes.German},
+			{"GRK",LanguageCodes.Greek},
+			{"HUN",LanguageCodes.Hungarian},
+			{"HIN",LanguageCodes.Hindi},
+			{"ITA",LanguageCodes.Italian},
+			{"JAP",LanguageCodes.Japanese},
+			{"KOR",LanguageCodes.Korean},
+			{"NOR",LanguageCodes.Norwegian},
+			{"POL",LanguageCodes.Polish},
+			{"RUS",LanguageCodes.Russian},
+			{"SPN",LanguageCodes.Spanish},
+			{"SWE",LanguageCodes.Swedish},
+		};
     }
 }

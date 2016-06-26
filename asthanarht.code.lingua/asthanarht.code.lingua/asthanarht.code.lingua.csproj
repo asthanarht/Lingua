@@ -63,6 +63,7 @@
     <Compile Include="View\OCR.xaml.cs">
       <DependentUpon>OCR.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\BindablePicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

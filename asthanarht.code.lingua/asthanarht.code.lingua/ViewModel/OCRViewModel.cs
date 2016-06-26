@@ -26,6 +26,7 @@ namespace asthanarht.code.lingua.ViewModel
             this.ImageUri = DefaultPhoto;
             visionService = DependencyService.Get<IVisionService>();
             translateService = DependencyService.Get<ITranslationService>();
+
         }
         private ImageSource imageUri;
 
@@ -43,6 +44,13 @@ namespace asthanarht.code.lingua.ViewModel
             set { status = value; RaisePropertyChanged(); }
         }
 
+		private string translateText;
+
+		public string TranslateText
+		{
+			get { return translateText; }
+			set { translateText = value; RaisePropertyChanged(); }
+		}
 
         private Command getOcrTextCommand;
         public Command GetOcrTextCommand
@@ -78,8 +86,8 @@ namespace asthanarht.code.lingua.ViewModel
         {
             try
             {
-                var status = await translateService.TranslateText("This is my Text");
-                this.Status = status;
+				var status = await translateService.TranslateText(this.Status);
+				this.TranslateText = status;
             }
             catch
             {
@@ -92,20 +100,21 @@ namespace asthanarht.code.lingua.ViewModel
         {
             await CrossMedia.Current.Initialize();
 
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-            {
-                await App_old.Current.MainPage.DisplayAlert("No Camera", ":( No camera available.", "OK");
-                return;
-            }
+			//if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+			//{
+			//    await App_old.Current.MainPage.DisplayAlert("No Camera", ":( No camera available.", "OK");
+			//    return;
+			//}
 
-            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            {
-                Directory = "Sample",
-                Name = "test.jpg",
-                DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Rear
+			//var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+			//{
+			//    Directory = "Sample",
+			//    Name = "test.jpg",
+			//    DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Rear
 
-            });
+			//});
 
+			var file = await CrossMedia.Current.PickPhotoAsync();
 
             if (file == null)
                 return;
@@ -113,6 +122,9 @@ namespace asthanarht.code.lingua.ViewModel
 
             var stream = file.GetStream();
             this.ImageUri = PhotoDetails.Path;
+
+			var ocrResult = await visionService.RecognizeTextAsync(stream);
+			this.Status = ParseOcrResults(ocrResult);
         }
 
 

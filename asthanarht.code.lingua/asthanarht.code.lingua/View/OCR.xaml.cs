@@ -15,13 +15,14 @@ namespace asthanarht.code.lingua.View
              
         public OCR()
         {
+			
             InitializeComponent();
             BindingContext = vm = new OCRViewModel();
-            ClickPhoto.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = vm.ClickPhotoCommand
-            });
 
+			ClickPhoto.GestureRecognizers.Add(new TapGestureRecognizer()
+			{
+				Command=vm.ClickPhotoCommand
+			});
             SelectLang.GestureRecognizers.Add(new TapGestureRecognizer()
             {
                 Command = vm.TranslateTextCommand
