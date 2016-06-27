@@ -36,7 +36,6 @@ namespace asthanarht.code.lingua.Service
         {
             string requestUrl = string.Format("{0}/ocr?language={1}&detectOrientation={2}&{3}={4}", SERVICE_HOST, languageCode, detectOrientation, _subscriptionKeyName, _subscriptionKey);
             var request = WebRequest.Create(requestUrl);
-
             return await this.SendAsync<Stream, OcrResults>("POST", imageStream, request);
 
         }

@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Xml;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -36,7 +37,6 @@ namespace asthanarht.code.lingua.Service
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(strTranslatorAccessURI);
-
                 // We want the response to be JSON.
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -71,7 +71,7 @@ namespace asthanarht.code.lingua.Service
             }
         }
 
-        public async Task<string> TranslateText(string TextToTranslate, string LanguageCode = LanguageCodes.French)
+        public async Task<string> TranslateText(string TextToTranslate, string LanguageCode = LanguageCodes.Hindi)
         {
             var token = await AccessToken();
 
@@ -95,7 +95,11 @@ namespace asthanarht.code.lingua.Service
                 // parse the response and return the data.
                 string jsonString = await response.Content.ReadAsStringAsync();
 
-                return jsonString;
+                System.Xml.Linq.XDocument xTranslation = System.Xml.Linq.XDocument.Parse(jsonString);
+
+                var translatedString = xTranslation.Root.Value;
+
+                return translatedString;
             }
         
 

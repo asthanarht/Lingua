@@ -4,6 +4,7 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,51 @@ namespace asthanarht.code.lingua.ViewModel
         readonly IVisionService visionService;
         readonly ITranslationService translateService;
 
+
+        private ObservableCollection<string> _myCollection;
+        public ObservableCollection<string> myCollection
+        {
+            get
+            {
+                return _myCollection;
+            }
+            set
+            {
+                _myCollection = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
+
+        private string _myitem;
+        public string myItem
+        {
+            get
+            {
+                return _myitem;
+            }
+            set
+            {
+                _myitem = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private string languageSet;
+        public string LanguageSet
+        {
+            get
+            {
+                return languageSet;
+            }
+            set
+            {
+                languageSet = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public ICommand PickPhotoCommand { get; set; }
 
         public OCRViewModel()
@@ -26,7 +72,13 @@ namespace asthanarht.code.lingua.ViewModel
             this.ImageUri = DefaultPhoto;
             visionService = DependencyService.Get<IVisionService>();
             translateService = DependencyService.Get<ITranslationService>();
+            this.myCollection = new ObservableCollection<string>();
+            foreach(var lang in LanguageCodes.PopulateLanguageDict)
+            {
+                _myCollection.Add(lang.Key);
+            }
 
+            this.languageSet = "HIN";
         }
         private ImageSource imageUri;
 
@@ -44,7 +96,15 @@ namespace asthanarht.code.lingua.ViewModel
             set { status = value; RaisePropertyChanged(); }
         }
 
-		private string translateText;
+
+        private Dictionary<string, string> languagePickerCollection;
+
+        public Dictionary<string, string> LanguagePickerCollection
+        {
+            get { return languagePickerCollection; }
+            set { languagePickerCollection = value; RaisePropertyChanged(); }
+        }
+        private string translateText;
 
 		public string TranslateText
 		{
@@ -86,7 +146,8 @@ namespace asthanarht.code.lingua.ViewModel
         {
             try
             {
-				var status = await translateService.TranslateText(this.Status);
+                this.LanguageSet = this.myItem;
+				var status = await translateService.TranslateText(this.Status,LanguageCodes.PopulateLanguageDict[this.myItem]);
 				this.TranslateText = status;
             }
             catch
@@ -123,8 +184,8 @@ namespace asthanarht.code.lingua.ViewModel
             var stream = file.GetStream();
             this.ImageUri = PhotoDetails.Path;
 
-			var ocrResult = await visionService.RecognizeTextAsync(stream);
-			this.Status = ParseOcrResults(ocrResult);
+            var ocrResult = await visionService.RecognizeTextAsync(stream);
+            this.Status = ParseOcrResults(ocrResult);
         }
 
 
@@ -153,7 +214,6 @@ namespace asthanarht.code.lingua.ViewModel
 
             if (results != null && results.Regions != null)
             {
-                stringBuilder.Append("Text: ");
                 stringBuilder.AppendLine();
                 foreach (var item in results.Regions)
                 {

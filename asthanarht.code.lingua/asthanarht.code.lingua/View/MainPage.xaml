@@ -20,9 +20,9 @@
   <Image  Grid.Row="1" BackgroundColor="#F9A050" Grid.Column="0" Source="ic_camera_enhance_white_36pt.png" Aspect="AspectFit" />
       <Button
          x:Name="captureSnapButton"
-		 Grid.Row="1"
+		     Grid.Row="1"
 					BorderWidth="0"
-	     Grid.Column="1"
+	        Grid.Column="1"
          HeightRequest="100"
          BackgroundColor="#F9A050"
          BorderRadius="0"
