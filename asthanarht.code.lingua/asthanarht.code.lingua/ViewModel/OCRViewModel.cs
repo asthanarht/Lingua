@@ -67,18 +67,53 @@ namespace asthanarht.code.lingua.ViewModel
 
         public ICommand PickPhotoCommand { get; set; }
 
-        public OCRViewModel()
+		public ICommand OCRTextCommand { get; set; }
+
+		public OCRViewModel(INavigation navigation)
         {
             this.ImageUri = DefaultPhoto;
             visionService = DependencyService.Get<IVisionService>();
             translateService = DependencyService.Get<ITranslationService>();
-            this.myCollection = new ObservableCollection<string>();
-            foreach(var lang in LanguageCodes.PopulateLanguageDict)
-            {
-                _myCollection.Add(lang.Key);
-            }
 
-            this.languageSet = "HIN";
+			PickPhotoCommand = new Command(async () =>
+			{
+				PhotoDetails = await Plugin.Media.CrossMedia.Current.PickPhotoAsync();
+				if (PhotoDetails != null)
+					ImageUri = ImageSource.FromFile(PhotoDetails.Path);
+			});
+
+
+			OCRTextCommand = new Command(async () =>
+			{
+
+				if (ImageUri != null)
+				{
+					try
+					{
+						var stream = PhotoDetails.GetStream();
+						var ocrResult = await Task.FromResult(0);// visionService.RecognizeTextAsync(stream);
+
+						var t = "Implementation options are multiple. I typically keep it simple, using fields in a static class. Note that you could have a message class for each type that will display messages, or you could have a central message class where you group multiple classes. You could have nested message groups. You could also add other types of constants for use in your code... As I mentioned, options and preferences abound.\n\n";
+						if (navigation != null )
+						{
+							await navigation.PushAsync(new OCRDetailsPage(this.ImageUri,t));
+						}
+						//this.Status = ParseOcrResults(ocrResult);
+					}
+					catch (Exception ex)
+					{
+					}
+
+				}
+
+			});
+            //this.myCollection = new ObservableCollection<string>();
+            //foreach(var lang in LanguageCodes.PopulateLanguageDict)
+            //{
+            //    _myCollection.Add(lang.Key);
+            //}
+
+            //this.languageSet = "HIN";
         }
         private ImageSource imageUri;
 

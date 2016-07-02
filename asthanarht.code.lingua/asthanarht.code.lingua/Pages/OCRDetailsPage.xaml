@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="asthanarht.code.lingua.OCRDetailsPage"
+		xmlns:local="clr-namespace:asthanarht.code.lingua;assembly=asthanarht.code.lingua">
+
+	<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" x:Name="Row1Header"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid RowSpacing="0" ColumnSpacing="0" x:Name="HeaderView" BackgroundColor="{DynamicResource Primary}">
+            <Image
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Source="{Binding PhotoUrl}"
+                Aspect="AspectFill"/>
+        </Grid>
+         <local:ParallaxScrollView x:Name="MainScroll" Grid.RowSpan="2">
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" x:Name="Row1Content"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="MainStack"
+                     VerticalOptions="End"
+                     HorizontalOptions="FillAndExpand">
+                    <Image Source="profile_pic_shadow.png" 
+                           Aspect="AspectFill"
+                           HorizontalOptions="FillAndExpand" 
+                           VerticalOptions="FillAndExpand"/>
+                    
+                </Grid>
+                <StackLayout Grid.Row="1" Spacing="0">
+                    <StackLayout BackgroundColor="{DynamicResource WindowBackgroundTable}"
+                                 Spacing="{DynamicResource CardSpacing}"
+                                 Padding="{DynamicResource CardPadding}">
+                        <!--OCRText-->
+                        <local:CardView>
+                            <StackLayout Spacing="0">
+                                <local:LabelSection Text="OCR"/>
+                                <local:HeaderDivider/>
+                                <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                                    <Label Text="{Binding OCRText}" Style="{DynamicResource EvolveListItemTextStyle}"/>
+                                </StackLayout>
+                                <local:FooterDivider/>
+                            </StackLayout>
+                        </local:CardView>
+
+                        <local:CardView >
+                            <StackLayout Spacing="0">
+                                <!--TranslateOption-->
+                                <local:LabelSection Text="Translate To"/>
+                                <local:HeaderDivider/>
+
+                                                <Grid x:Name="translateGrid" BackgroundColor="White" ColumnSpacing="{StaticResource StandardSpacing}">
+                                                    <Grid.Padding>
+                                                        <OnPlatform x:TypeArguments="Thickness" iOS="0,12" Android="16,8"/>
+                                                    </Grid.Padding>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Image VerticalOptions="Center" Source="{Binding Icon}">
+                                                        <Image.IsVisible>
+                                                            <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true"/>
+                                                        </Image.IsVisible>
+                                                    </Image>
+                                                    <Label Grid.Column="1" VerticalOptions="Center" Style="{DynamicResource EvolveListItemTextStyle}" 
+										             Text="{Binding SelectedLanguage, Mode=TwoWay}"/>
+                                                    <Label Grid.Column="2"
+                                                           VerticalOptions="Center"
+                                                           Style="{DynamicResource EvolveListItemTextStyle}"
+                                                           TextColor="{DynamicResource DetailTextColor}"
+                                                           Text=">">
+                                                      
+                                                    </Label>
+									             <local:BindablePicker x:Name="languagePicker" IsVisible="False" ItemsSource="{Binding Path=LanguageCollection}" SelectedItem="{Binding Path=SelectedLanguage}" ></local:BindablePicker>
+                                                </Grid>
+                                         
+                                <local:FooterDivider/>
+                            </StackLayout>
+                        </local:CardView>
+
+                        <!--TranslatedText-->
+                        <local:CardView>
+                            <StackLayout Spacing="0">
+                                <local:LabelSection Text="Translated Text"/>
+                                <local:HeaderDivider/>
+                                <StackLayout Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                                    <Label Text="{Binding TranslatedText}" Style="{DynamicResource EvolveListItemTextStyle}"/>
+                                </StackLayout>
+                                <local:FooterDivider/>
+                            </StackLayout>
+                        </local:CardView>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </local:ParallaxScrollView>
+		
+	</Grid>
+</ContentPage>

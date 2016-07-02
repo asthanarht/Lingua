@@ -1,4 +1,4 @@
-﻿using asthanarht.code.lingua.View;
+﻿using asthanarht.code.lingua.Pages;
 using Plugin.Media;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace asthanarht.code.lingua.ViewModel
     public class MainViewModel :BaseViewModel
     {
         Command clickPicCommand;
-        public MainViewModel(Page page):base(page)
+		public MainViewModel(Xamarin.Forms.Page page):base(page)
         {
 
         }

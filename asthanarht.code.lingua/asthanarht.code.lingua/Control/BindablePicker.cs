@@ -1,6 +1,6 @@
 ﻿
 
-namespace asthanarht.code.lingua.Control
+namespace asthanarht.code.lingua
 {
     using System;
     using System.Collections;

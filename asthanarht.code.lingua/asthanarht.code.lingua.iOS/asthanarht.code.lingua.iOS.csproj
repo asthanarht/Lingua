@@ -137,6 +137,13 @@
     <BundleResource Include="Resources\ic_settings_white_36pt_2x.png" />
     <BundleResource Include="Resources\ic_settings_white_36pt_3x.png" />
     <BundleResource Include="Resources\ic_settings_white_36pt.png" />
+    <BundleResource Include="Resources\text.png" />
+    <BundleResource Include="Resources\ic_translate_white_48pt_2x.png" />
+    <BundleResource Include="Resources\ic_translate_white_48pt_3x.png" />
+    <BundleResource Include="Resources\ic_translate_white_48.png" />
+    <BundleResource Include="Resources\ic_history_white_48.png" />
+    <BundleResource Include="Resources\ic_fiber_manual_record_48.png" />
+    <BundleResource Include="Resources\ic_fiber_manual_record.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

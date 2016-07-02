@@ -1,4 +1,4 @@
-﻿using asthanarht.code.lingua.View;
+﻿using asthanarht.code.lingua.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;

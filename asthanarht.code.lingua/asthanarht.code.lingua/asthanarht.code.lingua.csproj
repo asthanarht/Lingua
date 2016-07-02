@@ -55,15 +55,32 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OCRViewModel.cs" />
-    <Compile Include="View\MainPage.xaml.cs">
+    <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\OCPExtractorPage.xaml.cs">
+    <Compile Include="Pages\OCPExtractorPage.xaml.cs">
       <DependentUpon>OCPExtractorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\OCR.xaml.cs">
+    <Compile Include="Pages\OCR.xaml.cs">
       <DependentUpon>OCR.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\AlwaysScrollView.cs" />
+    <Compile Include="Control\CardView.cs" />
+    <Compile Include="Control\FooterDivider.xaml.cs">
+      <DependentUpon>FooterDivider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\HeaderDivider.xaml.cs">
+      <DependentUpon>HeaderDivider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\NonScrollableListView.cs" />
+    <Compile Include="Control\ParallaxScrollView.cs" />
+    <Compile Include="Pages\OCRDetailsPage.xaml.cs">
+      <DependentUpon>OCRDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\LabelSection.xaml.cs">
+      <DependentUpon>LabelSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\OCRDetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -108,13 +125,25 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\MainPage.xaml">
+    <EmbeddedResource Include="Pages\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Control\FooterDivider.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\HeaderDivider.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\OCRDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\LabelSection.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\OCPExtractorPage.xaml">
+    <EmbeddedResource Include="Pages\OCPExtractorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -127,7 +156,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\OCR.xaml">
+    <EmbeddedResource Include="Pages\OCR.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

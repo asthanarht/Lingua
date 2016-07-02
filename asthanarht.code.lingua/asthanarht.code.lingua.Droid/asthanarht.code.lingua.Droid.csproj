@@ -142,6 +142,9 @@
     <AndroidResource Include="Resources\drawable\chevronup.png" />
     <AndroidResource Include="Resources\drawable\down.png" />
     <AndroidResource Include="Resources\drawable\up.png" />
+    <AndroidResource Include="Resources\drawable\ic_translate_white_48.png" />
+    <AndroidResource Include="Resources\drawable\ic_history_white_48.png" />
+    <AndroidResource Include="Resources\drawable\ic_fiber_manual_record.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace asthanarht.code.lingua.View
+namespace asthanarht.code.lingua.Pages
 {
     public partial class OCPExtractorPage : ContentPage
     {
