@@ -14,17 +14,23 @@
 						<Grid.ColumnDefinitions>
    
     <ColumnDefinition Width="*" />
-	<ColumnDefinition Width="45" />
+	
   </Grid.ColumnDefinitions>
+   <Image
+                x:Name="HeroImage"
+              
+				Source="lingua2.png"
+                Aspect="AspectFill"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions ="FillAndExpand"/>
+  <Grid BackgroundColor="#F9A050" Grid.Row="1"  >
 
-  <Grid BackgroundColor="#F9A050" Grid.Row="1" Grid.Column="1" >
-  <Image  Opacity="0.5" Source="ic_fiber_manual_record.png" Aspect="AspectFit"  />
 	</Grid>			
       <Label
          x:Name="captureOCR"
 		 Grid.Row="1"
 		 HorizontalOptions="FillAndExpand"			
-	     Grid.Column="0"
+
          HeightRequest="100"
 		 YAlign="Center"
 	     XAlign="Center"
@@ -32,12 +38,12 @@
          TextColor="White"  
        
          Text="OCR"/>
-<Grid BackgroundColor="#FF4B6D" Grid.Row="2" Grid.Column="1" >
-      <Image   Opacity="0.5"   Source="ic_fiber_manual_record.png" Aspect="AspectFit" />
+<Grid BackgroundColor="#FF4B6D" Grid.Row="2" >
+      
       </Grid>
 				<Label 
        x:Name="LinguaBaseButton"
-	   Grid.Column="0"
+	 
 	   Grid.Row="2"
        HeightRequest="100"
        BackgroundColor="#FF4B6D"
@@ -46,13 +52,13 @@
        TextColor="White"
 	   
        Text="History"/>
-       <Grid BackgroundColor="#2ED0A8" Grid.Row="3" Grid.Column="1" >
-			<Image   Opacity="0.5" Source="ic_fiber_manual_record.png" Aspect="AspectFit" />
+       <Grid BackgroundColor="#2ED0A8" Grid.Row="3"  >
+			
 			</Grid>
 				<Label
        x:Name="settingButton"
        HeightRequest="100"
-					Grid.Column="0"
+					
 					Grid.Row="3"
        BackgroundColor="#2ED0A8"
        YAlign="Center"

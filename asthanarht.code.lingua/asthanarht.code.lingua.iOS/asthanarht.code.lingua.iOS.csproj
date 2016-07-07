@@ -144,6 +144,9 @@
     <BundleResource Include="Resources\ic_history_white_48.png" />
     <BundleResource Include="Resources\ic_fiber_manual_record_48.png" />
     <BundleResource Include="Resources\ic_fiber_manual_record.png" />
+    <BundleResource Include="Resources\lingua.png" />
+    <BundleResource Include="Resources\lingua2.png" />
+    <BundleResource Include="Resources\Oval.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

@@ -11,12 +11,15 @@ namespace asthanarht.code.lingua
 		public OCRDetailsPage(ImageSource image, string OCRText)
 		{
 			InitializeComponent();
+			MainScroll.ParallaxView = HeaderView;
 			BindingContext = vm = new OCRDetailViewModel(image, OCRText);
 
 			languagePicker.SelectedIndexChanged += LanguagePicker_SelectedIndexChanged;
 			TapGestureRecognizer tapLanguageLabel = new TapGestureRecognizer();
 			tapLanguageLabel.Tapped += TapLanguageLabel_Tapped;
 			translateGrid.GestureRecognizers.Add(tapLanguageLabel);
+			if (Device.Idiom != TargetIdiom.Phone)
+				Row1Header.Height = Row1Content.Height = 350;
 		}
 
 		void TapLanguageLabel_Tapped(object sender, EventArgs e)
