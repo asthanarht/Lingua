@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="asthanarht.code.lingua.Pages.MainPage" BackgroundColor="#202B51">
+             x:Class="asthanarht.code.lingua.Pages.MainPage" Title="Lingua Franca" >
 
-  <ContentPage.Content Padding="0">
-		<Grid RowSpacing="0" ColumnSpacing="0" Padding="0, -20, 0, 0">
+
+		<Grid BackgroundColor="#673AB7" RowSpacing="0" ColumnSpacing="0" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 		<Grid.RowDefinitions>
 					          <RowDefinition Height="*"  />
 					          <RowDefinition Height="100" />
 					          <RowDefinition Height="100"  />
-				              <RowDefinition Height="100" />
+				              
 						</Grid.RowDefinitions>
 						<Grid.ColumnDefinitions>
    
     <ColumnDefinition Width="*" />
 	
   </Grid.ColumnDefinitions>
-   <Image
-                x:Name="HeroImage"
-              
-				Source="lingua2.png"
-                Aspect="AspectFill"
-				HorizontalOptions="FillAndExpand"
-				VerticalOptions ="FillAndExpand"/>
-  <Grid BackgroundColor="#F9A050" Grid.Row="1"  >
+		<Grid Padding ="10" Grid.Row="0" >
+  <RelativeLayout >
+      <Image x:Name="DefaultPhoto"  Source="{Binding ImageUri}" Aspect="AspectFill"  />
+      <Image x:Name="ClickPhoto" HeightRequest="50" WidthRequest="50" Source="cameraoutline.png" RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, &#xA; Constant=0}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, &#xA;Property=Width,&#xA;ElementName=DefaultPhoto,&#xA;Constant=-48}" />
+    </RelativeLayout>
+		</Grid>	
+  <Grid BackgroundColor="#FF4081" Grid.Row="1"  >
 
 	</Grid>			
       <Label
@@ -34,43 +33,27 @@
          HeightRequest="100"
 		 YAlign="Center"
 	     XAlign="Center"
-         BackgroundColor="#F9A050"
+         BackgroundColor="#FF4081"
          TextColor="White"  
        
          Text="OCR"/>
-<Grid BackgroundColor="#FF4B6D" Grid.Row="2" >
+<Grid BackgroundColor="#03A9F4" Grid.Row="2" >
       
       </Grid>
 				<Label 
-       x:Name="LinguaBaseButton"
+       x:Name="setting"
 	 
 	   Grid.Row="2"
        HeightRequest="100"
-       BackgroundColor="#FF4B6D"
+       BackgroundColor="#03A9F4"
        YAlign="Center"
 	   XAlign="Center"
        TextColor="White"
 	   
-       Text="History"/>
-       <Grid BackgroundColor="#2ED0A8" Grid.Row="3"  >
-			
-			</Grid>
-				<Label
-       x:Name="setting"
-       HeightRequest="100"
-					
-					Grid.Row="3"
-       BackgroundColor="#2ED0A8"
-       YAlign="Center"
-	   XAlign="Center"
-       TextColor="White"
-       Text="Setting" >
-
-				
-				</Label>
-			
+       Text="Setting"/>
+      
         
  
 			</Grid>
-  </ContentPage.Content>
+
 </ContentPage>

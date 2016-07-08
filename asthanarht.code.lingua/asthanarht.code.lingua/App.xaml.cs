@@ -12,12 +12,28 @@ namespace asthanarht.code.lingua
 {
     public partial class App : Application
     {
+
+		public static Size ScreenSize { get; set; }
         public static App current;
         public App()
         {
             current = this;
             InitializeComponent();
-            MainPage = new MainPage();
+			MainPage = new NavigationPage(new MainPage());
+
+			var screen = DependencyService.Get<IDisplay>();
+			if (screen != null)
+			{
+				ScreenSize = screen.Size;
+			}
+			else {
+				ScreenSize = new Size(300, 600);
+			}
         }
     }
+
+	public interface IDisplay
+	{
+		Size Size { get; }
+	}
 }

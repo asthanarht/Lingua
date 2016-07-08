@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		x:Class="asthanarht.code.lingua.Setting"
-		xmlns:local="clr-namespace:asthanarht.code.lingua;assembly=asthanarht.code.lingua"  Title="Settings"
+		xmlns:local="clr-namespace:asthanarht.code.lingua;assembly=asthanarht.code.lingua"
 		BackgroundColor="{DynamicResource WindowBackgroundTable}">
         <StackLayout Spacing="0"> 
             <StackLayout 

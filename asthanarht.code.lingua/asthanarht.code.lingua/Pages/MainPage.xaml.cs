@@ -15,12 +15,12 @@ namespace asthanarht.code.lingua.Pages
         public MainPage()
         {
             InitializeComponent();
-            Title = "ViewProfile";
+            
 
-            BindingContext = vm = new MainViewModel(this);  
-			captureOCR.GestureRecognizers.Add(new TapGestureRecognizer()
+			BindingContext = vm = new MainViewModel(Navigation);  
+			ClickPhoto.GestureRecognizers.Add(new TapGestureRecognizer()
 			{
-				
+				Command = vm.PickPhotoCommand
 			});
 
 			TapGestureRecognizer tapLanguageLabel = new TapGestureRecognizer();
@@ -34,7 +34,7 @@ namespace asthanarht.code.lingua.Pages
 
 		void TapLanguageLabel_Tapped(object sender, EventArgs e)
 		{
-			 vm.ClickPhotoCommand.Execute(null);
+			 vm.OCRTextCommand.Execute(null);
 		}
 
 		void TapSettingLabel_Tapped(object sender, EventArgs e)
