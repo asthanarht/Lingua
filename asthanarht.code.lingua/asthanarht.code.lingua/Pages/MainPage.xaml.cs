@@ -26,11 +26,20 @@ namespace asthanarht.code.lingua.Pages
 			TapGestureRecognizer tapLanguageLabel = new TapGestureRecognizer();
 			tapLanguageLabel.Tapped += TapLanguageLabel_Tapped;
 			captureOCR.GestureRecognizers.Add(tapLanguageLabel);
+
+			TapGestureRecognizer tapSettingLabel = new TapGestureRecognizer();
+			tapSettingLabel.Tapped +=	TapSettingLabel_Tapped;		
+			setting.GestureRecognizers.Add(tapSettingLabel);
         }
 
 		void TapLanguageLabel_Tapped(object sender, EventArgs e)
 		{
 			 vm.ClickPhotoCommand.Execute(null);
+		}
+
+		void TapSettingLabel_Tapped(object sender, EventArgs e)
+		{
+			vm.SettingCommand.Execute(null);
 		}
 }
 }

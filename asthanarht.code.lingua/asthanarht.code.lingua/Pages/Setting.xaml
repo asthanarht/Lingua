@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="asthanarht.code.lingua.Setting"
+		xmlns:local="clr-namespace:asthanarht.code.lingua;assembly=asthanarht.code.lingua"  Title="Settings"
+		BackgroundColor="{DynamicResource WindowBackgroundTable}">
+        <StackLayout Spacing="0"> 
+            <StackLayout 
+                
+                Spacing="{DynamicResource CardSpacing}"
+                Padding="{DynamicResource CardPadding}">
+
+                <local:CardView>
+                     <StackLayout Spacing="0" >
+                        <local:LabelSection Text="Microsoft Coginitive Vision API"/>
+                        <local:HeaderDivider/>  
+                        <Grid Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout>
+                                <Label Text="SubscriptionKey" Style="{DynamicResource EvolveListItemTextStyle}"/>
+                               
+                            </StackLayout>
+                            <StackLayout Grid.Column="1">
+                                <Entry Placeholder ="Key" />
+                               
+                            </StackLayout>
+                           
+                        </Grid>
+                        <local:FooterDivider/>
+                    </StackLayout>
+                </local:CardView>
+
+			 <local:CardView>
+                     <StackLayout Spacing="0" >
+                        <local:LabelSection Text="Microsoft Translation Key"/>
+                        <local:HeaderDivider/>  
+                        <Grid Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout>
+                                <Label Text="ClientId" Style="{DynamicResource EvolveListItemTextStyle}"/>
+                               
+                            </StackLayout>
+                            <StackLayout Grid.Column="1">
+                                <Entry Placeholder ="ClientId" />
+                               
+                            </StackLayout>
+                           
+                        </Grid>
+					<Grid Padding="{StaticResource StandardPadding}" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout>
+                                <Label Text="SecretId" Style="{DynamicResource EvolveListItemTextStyle}"/>
+                               
+                            </StackLayout>
+                            <StackLayout Grid.Column="1">
+                                <Entry Placeholder ="SecretId" />
+                               
+                            </StackLayout>
+                           
+                        </Grid>
+                        <local:FooterDivider/>
+                    </StackLayout>
+                </local:CardView>
+
+			 <StackLayout>
+           <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" Android="32,16,32,0" iOS="32,25,32,0" WinPhone="32,16,32,0"/>
+                </StackLayout.Padding>
+                <StackLayout.Spacing>
+                    <OnPlatform x:TypeArguments="x:Double" Android="0" iOS="16" WinPhone="10"/>
+                </StackLayout.Spacing>
+                <Button 
+                    Text="Save"
+                    Command="{Binding LoginCommand}"
+                    HorizontalOptions="FillAndExpand"
+                  
+                    StyleId="SignInButton"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource Primary}">
+
+                    <Button.FontAttributes>
+                        <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
+                    </Button.FontAttributes>
+                </Button>
+				</StackLayout>
+				<StackLayout Padding="4" IsVisible="{Binding IsBusy}">
+				    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+   
+</ContentPage>

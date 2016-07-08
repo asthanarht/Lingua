@@ -56,7 +56,7 @@
 			
 			</Grid>
 				<Label
-       x:Name="settingButton"
+       x:Name="setting"
        HeightRequest="100"
 					
 					Grid.Row="3"
@@ -64,7 +64,11 @@
        YAlign="Center"
 	   XAlign="Center"
        TextColor="White"
-       Text="Setting"/>
+       Text="Setting" >
+
+				
+				</Label>
+			
         
  
 			</Grid>

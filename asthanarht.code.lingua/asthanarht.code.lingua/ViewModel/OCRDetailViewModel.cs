@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using asthanarht.code.lingua.Contract;
 using asthanarht.code.lingua.Service;
 using Xamarin.Forms;
@@ -40,6 +41,19 @@ namespace asthanarht.code.lingua.ViewModel
 			}
 		}
 
+		private bool isFavorite;
+		public bool IsFavorite
+		{
+			get
+			{
+				return isFavorite;
+			}
+			set
+			{
+				isFavorite = value;
+				RaisePropertyChanged();
+			}
+		}
 
 		public OCRDetailViewModel(ImageSource photoLocation,string OCRText)
 		{
@@ -88,6 +102,17 @@ namespace asthanarht.code.lingua.ViewModel
 				return translateTextCommand ??
 					(translateTextCommand = new Command(async () => await ExecuteTranslateTextCommand(), () => { return !IsBusy; }));
 			}
+		}
+
+		ICommand favoriteCommand;
+		public ICommand FavoriteCommand =>
+		favoriteCommand ?? (favoriteCommand = new Command(async () => await ExecuteFavoriteCommandAsync()));
+
+		async Task ExecuteFavoriteCommandAsync()
+		{
+			this.IsFavorite = true;
+			await Task.FromResult(0);
+
 		}
 
 		private async Task ExecuteTranslateTextCommand()

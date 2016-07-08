@@ -18,8 +18,18 @@ namespace asthanarht.code.lingua.ViewModel
 
         }
 
+		ICommand settingCommand;
+		public ICommand SettingCommand =>
+		settingCommand ?? (settingCommand = new Command(async () => await ExecuteSettingCommandAsync()));
 
-        public Command ClickPhotoCommand
+		async Task ExecuteSettingCommandAsync()
+		{
+			var navPage = new NavigationPage(new Setting());
+			//navPage.BarBackgroundColor = Color.FromHex("#F9A050");
+			await page.Navigation.PushModalAsync(navPage);
+		}
+
+		public Command ClickPhotoCommand
         {
             get
             {

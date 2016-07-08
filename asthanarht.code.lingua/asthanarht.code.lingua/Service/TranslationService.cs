@@ -12,6 +12,7 @@ using System.Text;
 using System.Xml;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using asthanarht.code.lingua.Helpers;
 
 [assembly: Dependency(typeof(TranslationService))]
 namespace asthanarht.code.lingua.Service
@@ -30,8 +31,8 @@ namespace asthanarht.code.lingua.Service
         private async Task<string> AccessToken()
         {
 
-            string clientID = "asthanarht";
-            string clientSecret = "L+KWvEnrjvILRWy+VbJ0GGaRtccF0KO7vf7mYEDWl0E=";
+			string clientID = Settings.Current.TranslateClient;// "asthanarht";
+			string clientSecret = Settings.Current.TranslateSecret;// "L+KWvEnrjvILRWy+VbJ0GGaRtccF0KO7vf7mYEDWl0E=";
             String strTranslatorAccessURI = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13";
 
             using (var client = new HttpClient())

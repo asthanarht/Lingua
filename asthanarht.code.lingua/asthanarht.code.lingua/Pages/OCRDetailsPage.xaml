@@ -2,7 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		x:Class="asthanarht.code.lingua.OCRDetailsPage"
 		xmlns:local="clr-namespace:asthanarht.code.lingua;assembly=asthanarht.code.lingua">
+		 <ContentPage.Resources>
+     <ResourceDictionary>
+        
+        <local:IsFilledIconConverter x:Key="IsFilledIconConverter" />
 
+     </ResourceDictionary>
+    </ContentPage.Resources>
 	<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200" x:Name="Row1Header"/>
@@ -13,7 +19,7 @@
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
                 Source="{Binding PhotoUrl}"
-                Aspect="AspectFill"/>
+                Aspect="Fill"/>
         </Grid>
          <local:ParallaxScrollView x:Name="MainScroll" Grid.RowSpan="2">
             <Grid RowSpacing="0">
@@ -61,11 +67,19 @@
                                                         <ColumnDefinition Width="Auto"/>
                                                         <ColumnDefinition Width="Auto"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <Image VerticalOptions="Center" Source="{Binding Icon}">
-                                                        <Image.IsVisible>
-                                                            <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true"/>
-                                                        </Image.IsVisible>
-                                                    </Image>
+                                                   <StackLayout Padding="16,0" Spacing="8" Grid.Column="0" Orientation="Horizontal" BackgroundColor="White">
+                                <StackLayout.IsVisible>
+                                    <OnPlatform x:TypeArguments="x:Boolean" iOS="true" Android="true" WinPhone="false"/>
+                                </StackLayout.IsVisible>
+
+                                <local:FavoriteImage StyleId="FavoriteIcon" 
+                                    x:Name="FavoriteIconiOS"
+                                    Source="{Binding IsFavorite, Converter={StaticResource IsFilledIconConverter}, ConverterParameter='heart'}">
+                                    <local:FavoriteImage.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding FavoriteCommand}"/>
+                                    </local:FavoriteImage.GestureRecognizers>
+                                </local:FavoriteImage>
+                            </StackLayout>
                                                     <Label Grid.Column="1" VerticalOptions="Center" Style="{DynamicResource EvolveListItemTextStyle}" 
 										             Text="{Binding SelectedLanguage, Mode=TwoWay}"/>
                                                     <Label Grid.Column="2"

@@ -97,6 +97,7 @@
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
+    <Compile Include="Helpers\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -147,6 +148,12 @@
     <BundleResource Include="Resources\lingua.png" />
     <BundleResource Include="Resources\lingua2.png" />
     <BundleResource Include="Resources\Oval.png" />
+    <BundleResource Include="Resources\heart_empty.png" />
+    <BundleResource Include="Resources\heart_empty%402x.png" />
+    <BundleResource Include="Resources\heart_empty%403x.png" />
+    <BundleResource Include="Resources\heart_filled.png" />
+    <BundleResource Include="Resources\heart_filled%402x.png" />
+    <BundleResource Include="Resources\heart_filled%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -178,6 +185,12 @@
     </Reference>
     <Reference Include="Plugin.Media">
       <HintPath>..\..\packages\Xam.Plugin.Media.2.3.0\lib\Xamarin.iOS10\Plugin.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.2.1.0\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.2.1.0\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
