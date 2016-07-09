@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="asthanarht.code.lingua.Pages.MainPage" Title="Lingua Franca" >
+             x:Class="asthanarht.code.lingua.Pages.MainPage" Title="Lingua Franca">
 
-
+             <ContentPage.Content>
 		<Grid BackgroundColor="#673AB7" RowSpacing="0" ColumnSpacing="0" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 		<Grid.RowDefinitions>
 					          <RowDefinition Height="*"  />
@@ -19,10 +19,12 @@
 		<Grid Padding ="10" Grid.Row="0" >
   <RelativeLayout >
       <Image x:Name="DefaultPhoto"  Source="{Binding ImageUri}" Aspect="AspectFill"  />
-      <Image x:Name="ClickPhoto" HeightRequest="50" WidthRequest="50" Source="cameraoutline.png" RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, &#xA; Constant=0}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, &#xA;Property=Width,&#xA;ElementName=DefaultPhoto,&#xA;Constant=-48}" />
+      <Image x:Name="ClickPhoto" HeightRequest="50" WidthRequest="50" Source="camera.png" RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, &#xA; Constant=0}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, &#xA;Property=Width,&#xA;ElementName=DefaultPhoto,&#xA;Constant=-48}" />
+      <Image x:Name="PickPhoto" HeightRequest="50" WidthRequest="50" Source="folder_image.png" RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, &#xA; Constant=0}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, &#xA;Property=X,&#xA;ElementName=DefaultPhoto,&#xA;Constant=-10}" />
+					
     </RelativeLayout>
 		</Grid>	
-  <Grid BackgroundColor="#FF4081" Grid.Row="1"  >
+  <Grid BackgroundColor="#C2185B" Grid.Row="1"  >
 
 	</Grid>			
       <Label
@@ -33,11 +35,11 @@
          HeightRequest="100"
 		 YAlign="Center"
 	     XAlign="Center"
-         BackgroundColor="#FF4081"
+         BackgroundColor="#C2185B"
          TextColor="White"  
        
          Text="OCR"/>
-<Grid BackgroundColor="#03A9F4" Grid.Row="2" >
+<Grid BackgroundColor="#0097A7" Grid.Row="2" >
       
       </Grid>
 				<Label 
@@ -45,7 +47,7 @@
 	 
 	   Grid.Row="2"
        HeightRequest="100"
-       BackgroundColor="#03A9F4"
+       BackgroundColor="#0097A7"
        YAlign="Center"
 	   XAlign="Center"
        TextColor="White"
@@ -55,5 +57,5 @@
         
  
 			</Grid>
-
+			</ContentPage.Content>
 </ContentPage>

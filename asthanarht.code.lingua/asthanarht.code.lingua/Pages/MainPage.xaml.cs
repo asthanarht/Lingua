@@ -20,6 +20,11 @@ namespace asthanarht.code.lingua.Pages
 			BindingContext = vm = new MainViewModel(Navigation);  
 			ClickPhoto.GestureRecognizers.Add(new TapGestureRecognizer()
 			{
+				Command = vm.ClickPhotoCommand
+			});
+
+			PickPhoto.GestureRecognizers.Add(new TapGestureRecognizer()
+			{
 				Command = vm.PickPhotoCommand
 			});
 

@@ -11,6 +11,7 @@ namespace asthanarht.code.lingua
 		public OCRDetailsPage(ImageSource image, string OCRText)
 		{
 			InitializeComponent();
+			Title = "OCR";
 			MainScroll.ParallaxView = HeaderView;
 			BindingContext = vm = new OCRDetailViewModel(image, OCRText);
 

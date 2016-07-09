@@ -3,7 +3,10 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		x:Class="asthanarht.code.lingua.Setting"
 		xmlns:local="clr-namespace:asthanarht.code.lingua;assembly=asthanarht.code.lingua"
+		xmlns:toolkit="clr-namespace:FormsToolkit;assembly=FormsToolkit"
+		Title="Setting"
 		BackgroundColor="{DynamicResource WindowBackgroundTable}">
+	<ContentPage.Content>
         <StackLayout Spacing="0"> 
             <StackLayout 
                 
@@ -24,7 +27,17 @@
                                
                             </StackLayout>
                             <StackLayout Grid.Column="1">
-                                <Entry Placeholder ="Key" />
+                                <toolkit:EntryLine 
+				                       Text="{Binding VisionKey}" 
+				                       HorizontalOptions="FillAndExpand"
+				                       TextColor="#C2185B"
+				                       HorizontalTextAlignment="Center"
+				                       Placeholder="VisionKey"
+				                       BorderColor="#ECECEC">
+				                       <toolkit:EntryLine.HorizontalTextAlignment>
+				                        <OnPlatform x:TypeArguments="TextAlignment" iOS="Center"/>
+				                       </toolkit:EntryLine.HorizontalTextAlignment>
+				               </toolkit:EntryLine>
                                
                             </StackLayout>
                            
@@ -47,7 +60,17 @@
                                
                             </StackLayout>
                             <StackLayout Grid.Column="1">
-                                <Entry Placeholder ="ClientId" />
+                                  <toolkit:EntryLine 
+				                       Text="{Binding TranslateClientId}" 
+				                       HorizontalOptions="FillAndExpand"
+				                        TextColor="#C2185B"
+				                       HorizontalTextAlignment="Center"
+				                       Placeholder="Client Id"
+				                       BorderColor="#ECECEC">
+				                       <toolkit:EntryLine.HorizontalTextAlignment>
+				                        <OnPlatform x:TypeArguments="TextAlignment" iOS="Center"/>
+				                       </toolkit:EntryLine.HorizontalTextAlignment>
+				               </toolkit:EntryLine>
                                
                             </StackLayout>
                            
@@ -62,7 +85,17 @@
                                
                             </StackLayout>
                             <StackLayout Grid.Column="1">
-                                <Entry Placeholder ="SecretId" />
+                                 <toolkit:EntryLine 
+				                       Text="{Binding TranslateSecretId}" 
+				                       HorizontalOptions="FillAndExpand"
+										 TextColor="#C2185B"
+				                       HorizontalTextAlignment="Center"
+				                       Placeholder="Secret Id"
+				                       BorderColor="#ECECEC">
+				                       <toolkit:EntryLine.HorizontalTextAlignment>
+				                        <OnPlatform x:TypeArguments="TextAlignment" iOS="Center"/>
+				                       </toolkit:EntryLine.HorizontalTextAlignment>
+				               </toolkit:EntryLine>
                                
                             </StackLayout>
                            
@@ -80,12 +113,12 @@
                 </StackLayout.Spacing>
                 <Button 
                     Text="Save"
-                    Command="{Binding LoginCommand}"
+                    Command="{Binding SaveSettings}"
                     HorizontalOptions="FillAndExpand"
                   
                     StyleId="SignInButton"
                     TextColor="White"
-                    BackgroundColor="{StaticResource Primary}">
+                    BackgroundColor="#C2185B">
 
                     <Button.FontAttributes>
                         <OnPlatform x:TypeArguments="FontAttributes" iOS="Bold"/>
@@ -98,5 +131,5 @@
 
             </StackLayout>
         </StackLayout>
-   
+   </ContentPage.Content>
 </ContentPage>

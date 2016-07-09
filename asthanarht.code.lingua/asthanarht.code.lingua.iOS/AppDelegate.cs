@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using FormsToolkit.iOS;
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 namespace asthanarht.code.lingua.iOS
@@ -25,9 +26,19 @@ namespace asthanarht.code.lingua.iOS
         {
 			
 			global::Xamarin.Forms.Forms.Init();
+			Toolkit.Init();
             LoadApplication(new App());
-
+			ConfigureTheming();
             return base.FinishedLaunching(app, options);
         }
-    }
+
+		void ConfigureTheming()
+		{
+			UINavigationBar.Appearance.TintColor = UIColor.White;
+			UINavigationBar.Appearance.BarTintColor = Color.FromHex("512DA8").ToUIColor();
+			UINavigationBar.Appearance.TitleTextAttributes = new UIStringAttributes { ForegroundColor = UIColor.White };
+			UIBarButtonItem.Appearance.SetTitleTextAttributes(new UITextAttributes { TextColor = UIColor.White }, UIControlState.Normal);
+		}
+
+	}
 }

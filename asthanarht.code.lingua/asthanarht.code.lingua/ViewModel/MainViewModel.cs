@@ -41,9 +41,8 @@ namespace asthanarht.code.lingua.ViewModel
 
 						var t = "Implementation options are multiple. I typically keep it simple, using fields in a static class. Note that you could have a message class for each type that will display messages, or you could have a central message class where you group multiple classes. You could have nested message groups. You could also add other types of constants for use in your code... As I mentioned, options and preferences abound.\n\n";
 
-						var navPage = new NavigationPage(new OCRDetailsPage(this.ImageUri, t));
-						//navPage.BarBackgroundColor = Color.FromHex("#F9A050");
-						await navigation.PushAsync(navPage);
+
+						await navigation.PushAsync(new OCRDetailsPage(this.ImageUri, t));
 
 					
 						//this.Status = ParseOcrResults(ocrResult);
@@ -72,48 +71,44 @@ namespace asthanarht.code.lingua.ViewModel
 
 		async Task ExecuteSettingCommandAsync()
 		{
-			var navPage = new NavigationPage(new Setting());
+			
 			//navPage.BarBackgroundColor = Color.FromHex("#F9A050");
-			await navigation.PushAsync(navPage);
+			await navigation.PushAsync(new Setting());
 		}
 
 		public ICommand PickPhotoCommand { get; set; }
 
 		public ICommand OCRTextCommand { get; set; }
 
+		ICommand clickPhotoCommand;
+		public ICommand ClickPhotoCommand =>
+		clickPhotoCommand ?? (clickPhotoCommand = new Command(async () => await ClickPhoto()));
+
 		private async Task ClickPhoto()
         {
-            //await CrossMedia.Current.Initialize();
+            await CrossMedia.Current.Initialize();
 
-            //if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-            //{
-            //    await App_old.Current.MainPage.DisplayAlert("No Camera", ":( No camera available.", "OK");
-            //    return;
-            //}
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+				await App.Current.MainPage.DisplayAlert("No Camera", ":( No camera available.", "OK");
+                return;
+            }
 
-            //var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            //{
-            //    Directory = "Sample",
-            //    Name = "test.jpg",
-            //    DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Rear
+            PhotoDetails = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            {
+                Directory = "OCR",
+                Name = "OCR.jpg",
+               DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Rear
                 
-            //});
+            });
 
             
-            //if (file == null)
-            //    return;
-
+            if (PhotoDetails == null)
+             return;
+			if (PhotoDetails != null)
+				ImageUri = ImageSource.FromFile(PhotoDetails.Path);
            
 
-            var navPage = new NavigationPage(new OCR());
-            navPage.BarBackgroundColor = Color.FromHex("#F9A050");
-            await page.Navigation.PushModalAsync(navPage);
-            //image.Source = ImageSource.FromStream(() =>
-            //{
-            //    var stream = file.GetStream();
-            //    file.Dispose();
-            //    return stream;
-            //});
 
         }
     }
