@@ -25,12 +25,10 @@
 	<string>com.asthanarht.rohit</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>CFBundleShortVersionString</key>
 	<string></string>
 	<key>CFBundleName</key>
-	<string>Lingua</string>
+	<string>Lingua franca</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcons.appiconset</string>
 </dict>
